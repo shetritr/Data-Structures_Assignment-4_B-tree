@@ -1,0 +1,19 @@
+
+public class SDSAD {
+
+	public static void main(String[] args) {
+		count(4, 0,"");
+
+	}
+public static void count(int n,int k,String acc){
+	if(n>0){
+		
+	if(n==1){
+		System.out.println(acc);
+		}else{
+	       count(n-1,k,acc + k);
+	       count(n-1,k++,acc + k);
+		}
+	}
+}
+}
