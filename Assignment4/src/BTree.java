@@ -76,10 +76,10 @@ public class BTree implements BTreeInterface {
 		if(root==null){
 			root=new BNode(t, b);
 		}else{
-			if(root.getNumOfBlocks()==2*t-1){
+			if(root.getNumOfBlocks()==2*t-1){//According to class 
 				BNode s=new BNode(t, root);
 				root=s;
-				 s.splitChild(1);
+				 s.splitChild(0);
 				s.insertNonFull(b);
 			}else{
 				root.insertNonFull(b);
@@ -90,13 +90,15 @@ public class BTree implements BTreeInterface {
 
 	@Override
 	public void delete(int key) {
-		if(root!=null)
-			root.delete(key);
-	}
+		if(root!=null){
+	    	root.delete(key);
+		}
+		}
 
 	@Override
 	public MerkleBNode createMBT() {
-		// TODO Auto-generated method stub
+		if(root!=null)
+			return root.createHashNode();
 		return null;
 	}
 
